@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 
-class LoginTextField extends StatelessWidget {
-  const LoginTextField({Key? key, required this.hintText, required this.icon,  required this.textEditingController})
-      : super(key: key);
+class PhoneNumberTextField extends StatelessWidget {
+  const PhoneNumberTextField({Key? key, required this.textEditingController}) : super(key: key);
 
-  final String hintText;
-  final IconData icon;
+
   final TextEditingController? textEditingController;
 
   @override
@@ -20,14 +18,15 @@ class LoginTextField extends StatelessWidget {
           border: Border.all(color: Colors.white)),
       child: TextField(
         controller: textEditingController,
+        keyboardType: TextInputType.number,
         textInputAction: TextInputAction.next,
         style: const TextStyle(color: Colors.white),
-        decoration: InputDecoration(
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white),
+        decoration: const InputDecoration(
+          hintText: 'Mobile Number',
+          hintStyle: TextStyle(color: Colors.white),
           border: InputBorder.none,
           icon: Icon(
-            icon,
+            Icons.phone,
             color: Colors.white,
           ),
         ),

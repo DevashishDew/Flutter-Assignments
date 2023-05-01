@@ -1,37 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignments/features/login/constants.dart';
 import 'package:flutter_assignments/features/login/screens/registration_screen.dart';
 import 'package:flutter_assignments/features/login/widgets/login_button.dart';
 import 'package:flutter_assignments/features/login/widgets/login_page_background.dart';
-import 'package:flutter_assignments/features/login/widgets/password_text_field.dart';
-import 'package:flutter_assignments/features/login/widgets/text_field_background.dart';
+import 'package:flutter_assignments/features/login/widgets/login_text_form_field.dart';
+import 'package:flutter_assignments/features/login/widgets/my_text_form_field.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScreenForm extends StatefulWidget {
+  const LoginScreenForm({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreenForm> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreenForm> {
+  final _formKey = GlobalKey<FormState>();
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  void validateAndSubmitDetails() {
-    final bool emailValid = emailRegex
-        .hasMatch(_emailController.text);
-
-    if (!emailValid) {
-      _showMessage('Enter valid email!');
-      return;
+  void _saveForm() {
+    final bool isValid = _formKey.currentState!.validate();
+    if (isValid) {
+      _showMessage('Logged In');
     }
-    if (_passwordController.text.length < 5) {
-      _showMessage('Enter valid password');
-      return;
-    }
-
-    _showMessage('Logged In successfully');
   }
 
   void _showMessage(String message) {
@@ -80,30 +71,39 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 8,
             ),
-            TextFieldBackground(
-              textField: TextField(
-                controller: _emailController,
-                textInputAction: TextInputAction.next,
-                style: const TextStyle(color: Colors.white),
-                decoration: const InputDecoration(
-                  hintText: 'Email',
-                  hintStyle: TextStyle(color: Colors.white),
-                  border: InputBorder.none,
-                  icon: Icon(
-                    Icons.email,
-                    color: Colors.white,
-                  ),
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    LoginTextFormField(
+                      labelText: 'Email',
+                      iconData: Icons.email,
+                      formValidator: (value) {
+                        if (value != null && value.trim().length < 4) {
+                          return 'This field requires a minimum of 4 characters';
+                        }
+                        return null;
+                      },
+                    ),
+                    const SizedBox(height: 16,),
+                    PasswordTextFormField(
+                      formValidator: (value) {
+                        if (value != null && value.trim().length < 4) {
+                          return 'This field requires a minimum of 6 characters';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
-            PasswordTextField(
-              hintText: 'Password',
-              textEditingController: _passwordController,
-            ),
             LoginButton(
-              buttonText: 'Login',
+              buttonText: 'Register',
               backgroundColor: Colors.white,
-              onButtonClick: validateAndSubmitDetails,
+              onButtonClick: _saveForm,
             ),
             const SizedBox(
               height: 30,

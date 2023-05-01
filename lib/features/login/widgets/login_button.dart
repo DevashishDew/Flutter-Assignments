@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton(
-      {Key? key, required this.buttonText, required this.backgroundColor, this.icon})
+      {Key? key, required this.buttonText, required this.backgroundColor, this.icon, required this.onButtonClick})
       : super(key: key);
 
   final String buttonText;
   final Color backgroundColor;
   final IconData? icon;
+  final void Function() onButtonClick;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class LoginButton extends StatelessWidget {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 24),
       child: TextButton.icon(
-        onPressed: () {},
+        onPressed: onButtonClick,
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
           backgroundColor: backgroundColor,
