@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignments/Navigation/route_constants.dart';
 import 'package:flutter_assignments/features/login/constants.dart';
-import 'package:flutter_assignments/features/login/screens/social_login_screen.dart';
 import 'package:flutter_assignments/features/login/widgets/login_button.dart';
 import 'package:flutter_assignments/features/login/widgets/login_page_background.dart';
 import 'package:flutter_assignments/features/login/widgets/login_text_field.dart';
@@ -20,7 +20,7 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  DateTime? _selectedDate;
+  DateTime? _selectedDOB;
   Gender _selectedGender = Gender.male;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -40,7 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         lastDate: lastDate);
 
     setState(() {
-      _selectedDate = pickedDate;
+      _selectedDOB = pickedDate;
     });
   }
 
@@ -79,7 +79,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       return;
     }
 
-    if (_selectedDate == null) {
+    if (_selectedDOB == null) {
       _showMessage('Select date of birth!');
       return;
     }
@@ -99,176 +99,173 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: LoginPageBackground(
-        childWidget: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Welcome',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                const Text(
-                  'Join Mr Bookworm!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                const SizedBox(
-                  height: 8,
-                ),
-                LoginTextField(
-                  hintText: 'Email',
-                  icon: Icons.email,
-                  textEditingController: _emailController,
-                ),
-                LoginTextField(
-                  hintText: 'City',
-                  icon: Icons.home,
-                  textEditingController: _cityController,
-                ),
-                PhoneNumberTextField(
-                  textEditingController: _mobileNumberController,
-                ),
-                LoginTextField(
-                  hintText: 'Collage',
-                  icon: Icons.school,
-                  textEditingController: _collageController,
-                ),
-                PasswordTextField(
-                  hintText: 'Password',
-                  textEditingController: _passwordController,
-                ),
-                PasswordTextField(
-                  hintText: 'Confirm Password',
-                  textEditingController: _confirmPasswordController,
-                ),
-                Container(
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
-                  child: Row(
-                    children: [
-                      DropdownButton(
-                        value: _selectedGender,
-                        items: Gender.values
-                            .map(
-                              (gender) => DropdownMenuItem(
-                                value: gender,
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      (gender == Gender.male)
-                                          ? Icons.male
-                                          : Icons.female,
-                                      color: Colors.white,
-                                    ),
-                                    Text(
-                                      gender.name.toUpperCase(),
-                                      style:
-                                          const TextStyle(color: Colors.white),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ).toList(),
-                        onChanged: (value) {
-                          if (value == null) return;
-                          setState(() {
-                            _selectedGender = value;
-                          });
-                        },
-                        dropdownColor: Colors.black87,
-                        icon: const Icon(
-                          Icons.arrow_drop_down,
-                          color: Colors.white, // <-- SEE HERE
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      Expanded(
-                        child: InkWell(
-                          onTap: _presentDatePicker,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Flexible(
-                                child: Text(
-                                  (_selectedDate == null)
-                                      ? 'Select DOB'
-                                      : formatter.format(_selectedDate!),
-                                  softWrap: true,
-                                  overflow: TextOverflow.visible,
-                                  style: const TextStyle(color: Colors.white),
-                                ),
-                              ),
-                              IconButton(
-                                onPressed: _presentDatePicker,
-                                icon: const Icon(
-                                  Icons.calendar_today,
-                                  color: Colors.white,
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                LoginButton(
-                  buttonText: 'Register',
-                  backgroundColor: Colors.white,
-                  onButtonClick: validateAndSubmitDetails,
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                const Text(
-                  'Don\'t have an account',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (ctx) => const SocialLoginScreen(),
-                      ),
-                    );
-                  },
-                  child: const Text(
-                    'Login',
+      body: Center(
+          child: LoginPageBackground(
+            childWidget: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Welcome',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-                ),
-              ],
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  const Text(
+                    'Join Mr Bookworm!',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  LoginTextField(
+                    hintText: 'Email',
+                    icon: Icons.email,
+                    textEditingController: _emailController,
+                  ),
+                  LoginTextField(
+                    hintText: 'City',
+                    icon: Icons.home,
+                    textEditingController: _cityController,
+                  ),
+                  PhoneNumberTextField(
+                    textEditingController: _mobileNumberController,
+                  ),
+                  LoginTextField(
+                    hintText: 'Collage',
+                    icon: Icons.school,
+                    textEditingController: _collageController,
+                  ),
+                  PasswordTextField(
+                    hintText: 'Password',
+                    textEditingController: _passwordController,
+                  ),
+                  PasswordTextField(
+                    hintText: 'Confirm Password',
+                    textEditingController: _confirmPasswordController,
+                  ),
+                  Container(
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 30),
+                    child: Row(
+                      children: [
+                        DropdownButton(
+                          value: _selectedGender,
+                          items: Gender.values
+                              .map(
+                                (gender) => DropdownMenuItem(
+                                  value: gender,
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        (gender == Gender.male)
+                                            ? Icons.male
+                                            : Icons.female,
+                                        color: Colors.white,
+                                      ),
+                                      Text(
+                                        gender.name.toUpperCase(),
+                                        style:
+                                            const TextStyle(color: Colors.white),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                          onChanged: (value) {
+                            if (value == null) return;
+                            setState(() {
+                              _selectedGender = value;
+                            });
+                          },
+                          dropdownColor: Colors.black87,
+                          icon: const Icon(
+                            Icons.arrow_drop_down,
+                            color: Colors.white, // <-- SEE HERE
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Expanded(
+                          child: InkWell(
+                            onTap: _presentDatePicker,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    (_selectedDOB == null)
+                                        ? 'Select DOB'
+                                        : formatter.format(_selectedDOB!),
+                                    softWrap: true,
+                                    overflow: TextOverflow.visible,
+                                    style: const TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                                IconButton(
+                                  onPressed: _presentDatePicker,
+                                  icon: const Icon(
+                                    Icons.calendar_today,
+                                    color: Colors.white,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  LoginButton(
+                    buttonText: 'Register',
+                    backgroundColor: Colors.white,
+                    onButtonClick: validateAndSubmitDetails,
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  const Text(
+                    'Don\'t have an account',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  TextButton(
+                    onPressed: () => Navigator.pushNamed(
+                        context, socialLoginRoute,
+                        arguments: 'Data from register'),
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
-      ),
     );
   }
 }

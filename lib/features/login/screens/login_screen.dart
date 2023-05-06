@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignments/Navigation/route_constants.dart';
 import 'package:flutter_assignments/features/login/constants.dart';
 import 'package:flutter_assignments/features/login/screens/registration_screen.dart';
 import 'package:flutter_assignments/features/login/widgets/login_button.dart';
@@ -120,13 +121,7 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 16,
             ),
             TextButton(
-              onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (ctx) => const RegisterScreen(),
-                  ),
-                );
-              },
+              onPressed: () => Navigator.pushNamed(context, registerRoute, arguments: 'Data from login'),
               child: const Text(
                 'Create Account',
                 style: TextStyle(

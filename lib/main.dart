@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignments/Navigation/router.dart';
 import 'package:flutter_assignments/features/login/screens/login_screen_form.dart';
 
+import 'Navigation/route_constants.dart';
 import 'features/login/screens/login_screen.dart';
 
 void main() {
@@ -18,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  const LoginScreen(),
+      onGenerateRoute: AppRouter.generateRoute,
+      initialRoute: homeRoute,
     );
   }
 }
