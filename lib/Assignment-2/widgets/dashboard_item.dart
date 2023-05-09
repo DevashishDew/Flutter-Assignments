@@ -35,7 +35,7 @@ class DashBoardItemWidget extends StatelessWidget {
               const SizedBox(height: 12),
               Text(
                 dashboardItem.subTitle,
-                style: const TextStyle(fontSize: 12.0, color: kLightGreyColor, ),
+                style: const TextStyle(fontSize: 12.0, color: kLightGreyColor, height: 1.6),
               ),
             ],
           ),
