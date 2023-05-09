@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignments/Assignment-2/dashboard.dart';
 import 'package:flutter_assignments/Navigation/router.dart';
 import 'package:flutter_assignments/features/login/screens/login_screen_form.dart';
 
@@ -6,7 +7,7 @@ import 'Navigation/route_constants.dart';
 import 'features/login/screens/login_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const DashBoard());
 }
 
 class MyApp extends StatelessWidget {
