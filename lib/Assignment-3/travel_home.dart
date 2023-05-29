@@ -13,28 +13,55 @@ class TravelHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  //  debugPaintSizeEnabled = true;
+    //  debugPaintSizeEnabled = true;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: ListView.builder(
-            itemCount: dummyHotelData.length,
-            itemBuilder: (_, index) {
-              final componentData = dummyHotelData[index];
-              if (componentData is QuickLink) {
-                return QuickLinkComponent(quickLink: componentData);
-              } else if (componentData is SearchComponent) {
-               return const SearchItem();
-              } else if (componentData is Stories) {
-                return StoryComponent(stories: componentData);
-              } else if (componentData is Popular) {
-                return PopularComponent(popular: componentData);
-              } else if (componentData is MainComponent) {
-                return MainWidget(mainComponent: componentData);
-              } else if (componentData is Hotels) {
-                return HotelsComponent(hotels: componentData);
-              }
-            }),
+        body: SafeArea(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Text(
+                      'Explore',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700),
+                    ),
+                    Expanded(child: Container()),
+                    const Icon(
+                      Icons.notifications,
+                      color: Colors.black,
+                    )
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ListView.builder(
+                    itemCount: dummyHotelData.length,
+                    itemBuilder: (_, index) {
+                      final componentData = dummyHotelData[index];
+                      if (componentData is QuickLink) {
+                        return QuickLinkComponent(quickLink: componentData);
+                      } else if (componentData is SearchComponent) {
+                        return const SearchItem();
+                      } else if (componentData is Stories) {
+                        return StoryComponent(stories: componentData);
+                      } else if (componentData is Popular) {
+                        return PopularComponent(popular: componentData);
+                      } else if (componentData is MainComponent) {
+                        return MainWidget(mainComponent: componentData);
+                      } else if (componentData is Hotels) {
+                        return HotelsComponent(hotels: componentData);
+                      }
+                    }),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
