@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assignments/Assignment-2/dashboard.dart';
+import 'package:flutter_assignments/Assignment-3/travel_home.dart';
 import 'package:flutter_assignments/Navigation/router.dart';
 import 'package:flutter_assignments/features/login/screens/login_screen_form.dart';
 
@@ -7,7 +8,7 @@ import 'Navigation/route_constants.dart';
 import 'features/login/screens/login_screen.dart';
 
 void main() {
-  runApp(const DashBoard());
+  runApp(const TravelHome());
 }
 
 class MyApp extends StatelessWidget {
