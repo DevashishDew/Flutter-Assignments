@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assignments/Assignment-3/model/travel_model.dart';
+import 'package:flutter_assignments/Assignment-3/widget/SearchWidget.dart';
 import 'package:flutter_assignments/Assignment-3/widget/hotels.dart';
 import 'package:flutter_assignments/Assignment-3/widget/main_component.dart';
 import 'package:flutter_assignments/Assignment-3/widget/popular.dart';
@@ -22,6 +23,8 @@ class TravelHome extends StatelessWidget {
               final componentData = dummyHotelData[index];
               if (componentData is QuickLink) {
                 return QuickLinkComponent(quickLink: componentData);
+              } else if (componentData is SearchComponent) {
+               return const SearchItem();
               } else if (componentData is Stories) {
                 return StoryComponent(stories: componentData);
               } else if (componentData is Popular) {

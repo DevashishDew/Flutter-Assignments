@@ -13,10 +13,10 @@ class QuickLinkSubItem {
   QuickLinkSubItem(this.title, this.imageUrl);
 }
 
-class SearchBar extends TravelParentData {
+class SearchComponent extends TravelParentData {
   final bool isActive;
 
-  SearchBar(this.isActive);
+  SearchComponent(this.isActive);
 }
 
 class Stories extends TravelParentData {
@@ -93,6 +93,7 @@ final List<TravelParentData> dummyHotelData = [
     QuickLinkSubItem('Hotels',
         'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg'),
   ]),
+  SearchComponent(true),
   Stories([
     'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
     'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',

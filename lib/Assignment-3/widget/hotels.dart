@@ -9,7 +9,6 @@ class HotelsComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 350,
       child: Column(

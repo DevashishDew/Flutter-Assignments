@@ -10,7 +10,7 @@ class PopularComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 400,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -34,7 +34,7 @@ class PopularComponent extends StatelessWidget {
                 itemCount: popular.poupularSubItem.length,
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                   maxCrossAxisExtent: 150,
-                  childAspectRatio: 1 / 2.5,
+                  childAspectRatio: 1 / 2.9,
                   crossAxisSpacing: 20,
                   mainAxisSpacing: 20,
                 ),
@@ -80,7 +80,7 @@ class PopularItem extends StatelessWidget {
                 image: NetworkImage(popular.imageUrl),
                 fit: BoxFit.cover,
                 height: 120,
-                width: 140,
+                width: 150,
               ),
             ),
             Padding(
