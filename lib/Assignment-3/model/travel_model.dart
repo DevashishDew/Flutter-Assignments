@@ -128,7 +128,7 @@ final List<TravelParentData> dummyHotelData = [
     MainComponentSubItem('Belarus', 'subTitle',
         'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg'),
   ], 'Poland', 'A special city where culture collide',
-      'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg'),
+      'https://picsum.photos/seed/picsum/500/500'),
   Hotels([
     HotelsSubItem(
         'Hotel ABC',
