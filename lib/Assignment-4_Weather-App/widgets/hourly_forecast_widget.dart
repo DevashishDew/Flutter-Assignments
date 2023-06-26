@@ -17,8 +17,8 @@ class HourlyForecast extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        boxShadow: const [
-          BoxShadow(color: Colors.black26),
+        boxShadow:  [
+          BoxShadow(color: Theme.of(context).colorScheme.tertiaryContainer),
         ],
       ),
       child: Padding(
@@ -27,15 +27,15 @@ class HourlyForecast extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+             Text(
               'Forecast for today',
-              style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
+               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(
               height: 12,
             ),
             SizedBox(
-              height: 230,
+              height: 240,
               width: double.infinity,
               child: ListView.builder(
                 shrinkWrap: true,
@@ -57,7 +57,7 @@ class HourlyForecast extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '${hourlyForecastList?[index].tempInCelsius}\u00b0',
+                        '${hourlyForecastList?[index].tempInCelsius}\u00b0C',
                         style: const TextStyle(
                             fontWeight: FontWeight.w400, fontSize: 22),
                       ),

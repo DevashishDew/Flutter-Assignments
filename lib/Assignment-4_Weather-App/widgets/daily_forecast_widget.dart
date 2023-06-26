@@ -16,8 +16,8 @@ class DailyForecast extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        boxShadow: const [
-          BoxShadow(color: Colors.black26),
+        boxShadow: [
+          BoxShadow(color: Theme.of(context).colorScheme.tertiaryContainer),
         ],
       ),
       child: Padding(
@@ -56,10 +56,12 @@ class DailyForecast extends StatelessWidget {
                   ),
                   Expanded(
                       child: Text(
-                          '${dailyForecastList[index].temp?.minTempInCelsius}')),
+                          '${dailyForecastList[index].temp?.minTempInCelsius}'
+                              '\u00b0C')),
                   Expanded(
                       child: Text(
-                          '${dailyForecastList[index].temp?.maxTempInCelsius}')),
+                          '${dailyForecastList[index].temp?.maxTempInCelsius}'
+                              '\u00b0C')),
                 ],
               ),
             ),
