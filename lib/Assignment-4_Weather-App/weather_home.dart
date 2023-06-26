@@ -58,6 +58,12 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
     }
   }
 
+  void _setTheme(){
+    setState(() {
+      isLightTheme = !isLightTheme;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -69,7 +75,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
         child: Scaffold(
           key: _scaffoldKey,
           drawer: MainDrawer(
-            onSelectScreen: (value) {},
+            onSelectTheme: (value) => _setTheme(),
           ),
           body: SingleChildScrollView(
             child: SizedBox(
@@ -96,11 +102,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                         ),
                         IconButton(
                           icon: Icon(Icons.add_circle),
-                          onPressed: () {
-                            setState(() {
-                              isLightTheme = !isLightTheme;
-                            });
-                          },
+                          onPressed: _setTheme,
                         ),
                       ],
                     ),
