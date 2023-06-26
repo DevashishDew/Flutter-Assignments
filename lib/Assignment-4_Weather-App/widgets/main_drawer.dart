@@ -45,14 +45,11 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(
               Icons.restaurant,
               size: 26,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.background,
             ),
             title: Text(
               'Theme',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
-                    fontSize: 24,
-                  ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             onTap: (){
               onSelectScreen('meals');
@@ -62,14 +59,11 @@ class MainDrawer extends StatelessWidget {
             leading: Icon(
               Icons.settings,
               size: 26,
-              color: Theme.of(context).colorScheme.onBackground,
+              color: Theme.of(context).colorScheme.background,
             ),
             title: Text(
               'Filters',
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                color: Theme.of(context).colorScheme.onBackground,
-                fontSize: 24,
-              ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             onTap: (){
               onSelectScreen('filters');
