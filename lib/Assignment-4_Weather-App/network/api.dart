@@ -18,7 +18,7 @@ class WeatherService {
   static const double lat = 28.704;
   static const double lon = 77.1025;
 
-  Future<CurrentWeatherData> getCurrentWeather(double lat, double long) async {
+  Future<CurrentWeatherData> getCurrentWeather(double lat, double lon) async {
     try {
       final response =
           await http.get(Uri.parse
@@ -35,7 +35,7 @@ class WeatherService {
     }
   }
 
-  Future<HourlyForecastData> getHourlyForecastData(double lat, double long) async {
+  Future<HourlyForecastData> getHourlyForecastData(double lat, double lon) async {
     try {
       final response =
       await http.get(Uri.parse
@@ -52,7 +52,7 @@ class WeatherService {
     }
   }
 
-  Future<DailyForecastData> getDailyForecastData(double lat, double long) async {
+  Future<DailyForecastData> getDailyForecastData(double lat, double lon) async {
     try {
       final response =
       await http.get(Uri.parse
