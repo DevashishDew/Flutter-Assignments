@@ -35,7 +35,7 @@ class MainDrawer extends StatelessWidget {
                   'Weather Report',
                   style: Theme.of(context)
                       .textTheme
-                      .titleLarge!
+                      .titleMedium!
                       .copyWith(color: Theme.of(context).colorScheme.primary),
                 ),
               ],
