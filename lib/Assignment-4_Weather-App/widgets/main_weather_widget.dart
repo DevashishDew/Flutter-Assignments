@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/current_weather_data.dart';
-
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/current_weather_data.dart';
 class MainWeatherWidget extends StatelessWidget {
   const MainWeatherWidget({
     super.key,

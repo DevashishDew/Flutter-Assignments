@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/daily_forecast_data.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/daily_forecast_data.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/network/api.dart';
 
 class DailyForecast extends StatelessWidget {

@@ -1,8 +1,7 @@
 import 'dart:convert';
-
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/current_weather_data.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/daily_forecast_data.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/hourly_forecast_data.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/current_weather_data.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/daily_forecast_data.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/hourly_forecast_data.dart';
 import 'package:http/http.dart' as http;
 
 class WeatherService {

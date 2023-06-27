@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/hourly_forecast_data.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/hourly_forecast_data.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/network/api.dart';
 
 class HourlyForecast extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/current_weather_data.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/daily_forecast_data.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/models/hourly_forecast_data.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/current_weather_data.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/daily_forecast_data.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/hourly_forecast_data.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/network/api.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/theme.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/widgets/hourly_forecast_widget.dart';
