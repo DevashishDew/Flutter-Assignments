@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/core/config/theme%20_preference.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/bloc/current_weather_data_bloc/current_weather_bloc.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/bloc/daily_weather_data_bloc/daily_weather_bloc.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/bloc/geolocation_bloc/geolocation_bloc.dart';
@@ -10,7 +11,8 @@ import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/widget
 import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/widgets/progress_indicator.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/core/config/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/core/config/di.dart' as di;
+import 'package:flutter_assignments/Assignment-4_Weather-App/core/config/di.dart'
+    as di;
 
 class WeatherHomePage extends StatefulWidget {
   const WeatherHomePage({super.key});
@@ -21,11 +23,25 @@ class WeatherHomePage extends StatefulWidget {
 
 class _WeatherHomePageState extends State<WeatherHomePage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  MyThemePreferences myThemePreferences = MyThemePreferences();
   bool isLightTheme = true;
+
+  @override
+  void initState() {
+    myThemePreferences.init().then((value) => _getTheme());
+    super.initState();
+  }
+
+  void _getTheme() async {
+    isLightTheme = await myThemePreferences.getTheme();
+    setState(() {});
+    print('Light theme => $isLightTheme');
+  }
 
   void _setTheme() {
     setState(() {
       isLightTheme = !isLightTheme;
+      myThemePreferences.setTheme(isLightTheme);
     });
   }
 
@@ -49,7 +65,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         themeMode: isLightTheme ? ThemeMode.light : ThemeMode.dark,
-        theme: lightTheme,
+        theme: isLightTheme ? lightTheme : darkTheme,
         darkTheme: darkTheme,
         home: SafeArea(
           child: Scaffold(
@@ -105,8 +121,11 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                         currentWeatherData:
                                             state.currentWeatherData)
                                     : const Center(
-                                        child: Text('Error occured!'),
+                                        child: Text('No data available!'),
                                       );
+                              }
+                              if (state is CurrentWeatherError) {
+                                return Text(state.error);
                               } else {
                                 return const ProgressIndicatorWidget();
                               }
@@ -120,8 +139,11 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                         hourlyForecastData:
                                             state.hourlyForecastData)
                                     : const Center(
-                                        child: Text('Error occured!'),
+                                        child: Text('No data available!'),
                                       );
+                              }
+                              if (state is HourlyWeatherError) {
+                                return Text(state.error);
                               } else {
                                 return const ProgressIndicatorWidget();
                               }
@@ -138,8 +160,11 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
                                         dailyForecastData:
                                             state.dailyForecastData)
                                     : const Center(
-                                        child: Text('Error occured!'),
+                                        child: Text('No data available!'),
                                       );
+                              }
+                              if (state is DailyWeatherError) {
+                                return Text(state.error);
                               } else {
                                 return const ProgressIndicatorWidget();
                               }
