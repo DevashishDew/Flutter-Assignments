@@ -7,8 +7,10 @@ import 'package:flutter_assignments/features/login/screens/login_screen_form.dar
 
 import 'Navigation/route_constants.dart';
 import 'features/login/screens/login_screen.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/di.dart' as di;
 
 void main() {
+  di.init();
   runApp(const WeatherHomePage());
 }
 

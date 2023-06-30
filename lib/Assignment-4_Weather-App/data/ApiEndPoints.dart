@@ -10,4 +10,7 @@ class ApiEndPoints {
 
   static getDailyWeatherData(double lat, double lon) =>
       '${BASE_URL}onecall?lat=$lat&lon=$lon&exclude=current,minutely,hourly&appid=$APP_ID';
+
+  static weatherIcon(String iconCode) =>
+      'http://openweathermap.org/img/wn/$iconCode.png';
 }

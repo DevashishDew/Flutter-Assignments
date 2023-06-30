@@ -12,7 +12,7 @@ import 'package:flutter_assignments/Assignment-4_Weather-App/domain/repository/w
 class WeatherRepositoryImpl extends WeatherRepository {
   final WeatherRemoteDatasource weatherRemoteDatasource;
 
-  WeatherRepositoryImpl(this.weatherRemoteDatasource);
+  WeatherRepositoryImpl({required this.weatherRemoteDatasource});
 
   @override
   Future<Either<Failure, CurrentWeatherData>> getCurrentWeatherData(

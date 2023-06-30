@@ -14,7 +14,7 @@ class CurrentWeatherError extends CurrentWeatherState {
 }
 
 class CurrentWeatherHasData extends CurrentWeatherState {
-  final CurrentWeatherData currentWeatherData;
+  final CurrentWeatherData? currentWeatherData;
 
   CurrentWeatherHasData(this.currentWeatherData);
 }

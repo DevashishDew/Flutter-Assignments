@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
-  useMaterial3: true,
   textTheme: const TextTheme(
     titleMedium: TextStyle(
         color: Colors.black, fontSize: 18, fontWeight: FontWeight.w500),
@@ -30,7 +29,7 @@ ThemeData darkTheme = ThemeData(
     titleMedium: TextStyle(
         color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
     titleLarge: TextStyle(
-        color: Colors.white, fontSize: 36, fontWeight: FontWeight.bold),
+        color: Colors.white, fontSize: 36, fontWeight: FontWeight.w700),
     displayLarge: TextStyle(
         decoration: TextDecoration.underline,
         decorationColor: Colors.grey,

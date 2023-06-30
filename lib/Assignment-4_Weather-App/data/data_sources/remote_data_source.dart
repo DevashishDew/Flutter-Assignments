@@ -17,7 +17,7 @@ abstract class WeatherRemoteDatasource {
 }
 
 class WeatherRemoteDatasourceImpl extends WeatherRemoteDatasource {
-  WeatherRemoteDatasourceImpl(this.client);
+  WeatherRemoteDatasourceImpl({required this.client});
 
   final http.Client client;
 

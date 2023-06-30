@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/data/ApiEndPoints.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/data/models/hourly_forecast_data.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/network/api.dart';
 
 class HourlyForecast extends StatelessWidget {
   const HourlyForecast({
@@ -52,7 +52,7 @@ class HourlyForecast extends StatelessWidget {
                       ),
                       Image(
                         image: NetworkImage(
-                          WeatherService().weatherIcon
+                          ApiEndPoints.weatherIcon
                             (hourlyForecastList?[index].weather?[0].icon ?? ''),
                         ),
                       ),
