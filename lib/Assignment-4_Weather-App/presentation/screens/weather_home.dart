@@ -3,14 +3,14 @@ import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/bloc/c
 import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/bloc/daily_weather_data_bloc/daily_weather_bloc.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/bloc/geolocation_bloc/geolocation_bloc.dart';
 import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/bloc/hourly_weather_data_bloc/hourly_weather_bloc.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/theme.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/widgets/hourly_forecast_widget.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/widgets/daily_forecast_widget.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/widgets/main_drawer.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/widgets/main_weather_widget.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/widgets/progress_indicator.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/widgets/daily_forecast_widget.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/widgets/hourly_forecast_widget.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/widgets/main_drawer.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/widgets/main_weather_widget.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/presentation/widgets/progress_indicator.dart';
+import 'package:flutter_assignments/Assignment-4_Weather-App/core/config/theme.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_assignments/Assignment-4_Weather-App/di.dart' as di;
+import 'package:flutter_assignments/Assignment-4_Weather-App/core/config/di.dart' as di;
 
 class WeatherHomePage extends StatefulWidget {
   const WeatherHomePage({super.key});
